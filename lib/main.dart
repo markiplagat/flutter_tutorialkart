@@ -24,6 +24,14 @@ class MyStatelessWidget extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My tutorial. Am learning flutter'),
+        actions: <Widget>[
+          IconButton(
+              icon: const Icon(Icons.add_alert),
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('You pressed the bell')));
+              }),
+        ],
       ),
       body: const Center(
         child: Text(
