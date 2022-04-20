@@ -9,36 +9,40 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: _title,
-      home: MyStatelessWidget(),
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const MyStatefulWidget(),
+      ),
     );
   }
 }
 
-class MyStatelessWidget extends StatelessWidget {
-  const MyStatelessWidget({Key? key}) : super(key: key);
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
 
   @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('My tutorial. Am learning flutter'),
-        actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.add_alert),
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('You pressed the bell')));
-              }),
-        ],
-      ),
-      body: const Center(
-        child: Text(
-          'Hello Flutter',
-          style: TextStyle(fontSize: 24),
+    return Center(
+        child: Container(
+      padding: const EdgeInsets.all(10),
+      child: Banner(
+        message: 'New Arrival',
+        location: BannerLocation.bottomEnd,
+        child: Container(
+          height: 200,
+          width: 200,
+          color: Colors.yellow,
+          alignment: Alignment.center,
+          child: const Text('Other One'),
         ),
       ),
-    );
+    ));
   }
 }
