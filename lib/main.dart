@@ -5,7 +5,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = "My Tutorial App";
+  static const String _title = "Flutter Tutorial";
 
   @override
   Widget build(BuildContext context) {
@@ -19,30 +19,84 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
+class MyStatefulWidget extends StatefulWidget{
   const MyStatefulWidget({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Container(
-      padding: const EdgeInsets.all(10),
-      child: Banner(
-        message: 'New Arrival',
-        location: BannerLocation.bottomEnd,
-        child: Container(
-          height: 200,
-          width: 200,
-          color: Colors.yellow,
-          alignment: Alignment.center,
-          child: const Text('Other One'),
-        ),
-      ),
-    ));
+      child: Column(
+        children: <Widget>[
+          const SizedBox(height: 20,),
+          Container(
+            height: 150,
+            width: 150,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 5,
+                  spreadRadius: 1,
+                  offset: Offset(4, 4)
+                ),
+              ],
+              color: Colors.green[200],
+            ),
+            child: const Text('Container 1'),
+          ),
+          const SizedBox(height: 20,),
+          Container(
+            height: 150,
+            width: 150,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.blue,
+                  blurRadius: 3,
+                  spreadRadius: 5,
+                  offset: Offset(0, 0)
+                ),
+                BoxShadow(
+                  color: Colors.red,
+                  blurRadius: 5,
+                  spreadRadius: 1,
+                  offset: Offset(5, 5)
+                ),
+              ],
+              color: Colors.green[200],
+            ),
+            child: const Text('Container 2'),
+          ),
+          const SizedBox(height: 20,),
+          Container(
+            height: 150,
+            width: 150,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.deepPurpleAccent,
+                  blurRadius: 10,
+                  spreadRadius: 0,
+                  offset: Offset(0, 0)
+                ),
+              ],
+              color: Colors.green[200],
+            ),
+            child: const Text('Container 3')
+          )
+        ],
+      )
+    );
   }
 }
