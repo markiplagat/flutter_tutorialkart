@@ -30,25 +30,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Column Widget")),
-      body: Center(
-        child: Column(
-          children: const <Widget>[
-            Text('Text 1', style: TextStyle(fontSize: 24.0),),
-            Text('Text 2', style: TextStyle(fontSize: 24.0),),
-            Icon(
-              Icons.beach_access,
-              color: Colors.pink,
-              size: 30.0,
-            ),
-            Icon(
-              Icons.audiotrack,
-              color: Colors.green,
-              size: 30.0,
-            ),
-          ],
-        )
-      )
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            label: "Home",
+            icon: Icon(Icons.home)
+          ),
+          BottomNavigationBarItem(
+            label: "Settings",
+            icon: Icon(Icons.settings)
+          )
+        ],
+      ),
     );
   }
 }
