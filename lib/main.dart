@@ -30,13 +30,30 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(children: <Widget>[
-      Container(
-          margin: const EdgeInsets.all(20),
-          child: const Image(
-              image: NetworkImage(
-            'https://www.tutorialkart.com/img/lion.jpg',
-          )))
-    ]));
+        child: ListView(
+          children: <Widget>[
+            Container(
+              height: 50,
+              color: Colors.lime[800],
+              child: const Center(child: Text('Apple')),
+            ),
+            Container(
+              height: 50,
+              color: Colors.lime[600],
+              child: const Center(child: Text('Banana')),
+            ),
+            Container(
+              height: 50,
+              color: Colors.lime[400],
+              child: const Center(child: Text('Mango')),
+            ),
+            Container(
+              height: 50,
+              color: Colors.lime[200],
+              child: const Center(child: Text('Orange')),
+            )
+            ],
+        )
+    );
   }
 }
