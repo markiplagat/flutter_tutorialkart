@@ -26,34 +26,56 @@ class MyStatefulWidget extends StatefulWidget {
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
+enum OS { mac, windows, linux }
+
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  OS? _os = OS.mac;
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: ListView(
-          children: <Widget>[
-            Container(
-              height: 50,
-              color: Colors.lime[800],
-              child: const Center(child: Text('Apple')),
-            ),
-            Container(
-              height: 50,
-              color: Colors.lime[600],
-              child: const Center(child: Text('Banana')),
-            ),
-            Container(
-              height: 50,
-              color: Colors.lime[400],
-              child: const Center(child: Text('Mango')),
-            ),
-            Container(
-              height: 50,
-              color: Colors.lime[200],
-              child: const Center(child: Text('Orange')),
-            )
-            ],
-        )
-    );
+        child: Column(
+      children: <Widget>[
+        const SizedBox(
+          height: 30,
+        ),
+        const Text('Which Operating System are you currently running?'),
+        const SizedBox(
+          height: 10,
+        ),
+        ListTile(
+            title: const Text('Mac'),
+            leading: Radio<OS>(
+              value: OS.mac,
+              groupValue: _os,
+              onChanged: (OS? value) {
+                setState(() {
+                  _os = value;
+                });
+              },
+            )),
+        ListTile(
+            title: const Text('Windows'),
+            leading: Radio<OS>(
+              value: OS.windows,
+              groupValue: _os,
+              onChanged: (OS? value) {
+                setState(() {
+                  _os = value;
+                });
+              },
+            )),
+        ListTile(
+            title: const Text('Linux'),
+            leading: Radio<OS>(
+              value: OS.linux,
+              groupValue: _os,
+              onChanged: (OS? value) {
+                setState(() {
+                  _os = value;
+                });
+              },
+            ))
+      ],
+    ));
   }
 }
